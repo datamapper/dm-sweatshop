@@ -60,18 +60,18 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0.rc2"])
-      s.add_runtime_dependency(%q<randexp>, ["~> 0.1.4"])
+      s.add_runtime_dependency(%q<randexp>, ["~> 0.1.5"])
       s.add_development_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3"])
     else
       s.add_dependency(%q<dm-core>, ["~> 1.0.0.rc2"])
-      s.add_dependency(%q<randexp>, ["~> 0.1.4"])
+      s.add_dependency(%q<randexp>, ["~> 0.1.5"])
       s.add_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
       s.add_dependency(%q<rspec>, ["~> 1.3"])
     end
   else
     s.add_dependency(%q<dm-core>, ["~> 1.0.0.rc2"])
-    s.add_dependency(%q<randexp>, ["~> 0.1.4"])
+    s.add_dependency(%q<randexp>, ["~> 0.1.5"])
     s.add_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
     s.add_dependency(%q<rspec>, ["~> 1.3"])
   end
