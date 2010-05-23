@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Burkert"]
-  s.date = %q{2010-05-19}
+  s.date = %q{2010-05-23}
   s.description = %q{DataMapper plugin for building pseudo random models}
   s.email = %q{ben [a] benburkert [d] com}
   s.extra_rdoc_files = [
@@ -61,19 +61,19 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0.rc2"])
       s.add_runtime_dependency(%q<randexp>, ["~> 0.1.5"])
-      s.add_development_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3"])
+      s.add_development_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
     else
       s.add_dependency(%q<dm-core>, ["~> 1.0.0.rc2"])
       s.add_dependency(%q<randexp>, ["~> 0.1.5"])
-      s.add_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
       s.add_dependency(%q<rspec>, ["~> 1.3"])
+      s.add_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
     end
   else
     s.add_dependency(%q<dm-core>, ["~> 1.0.0.rc2"])
     s.add_dependency(%q<randexp>, ["~> 0.1.5"])
-    s.add_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
     s.add_dependency(%q<rspec>, ["~> 1.3"])
+    s.add_dependency(%q<dm-validations>, ["~> 1.0.0.rc2"])
   end
 end
 
