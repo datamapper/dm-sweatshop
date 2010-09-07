@@ -28,7 +28,7 @@ module DataMapper
     #
     # @api       private
     #
-    # @returns   [Array]    model map
+    # @return   [Array]    model map
     def self.add(klass, name, &proc)
       self.model_map[klass][name.to_sym] << proc
     end
@@ -41,7 +41,7 @@ module DataMapper
     #
     # @api       private
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def self.record(klass, name, instance)
       self.record_map[klass][name.to_sym] << instance
       instance
@@ -56,7 +56,7 @@ module DataMapper
     #
     # @api       private
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def self.create!(klass, name, attributes = {})
       record(klass, name, klass.create!(attributes(klass, name).merge(attributes)))
     end
@@ -70,7 +70,7 @@ module DataMapper
     #
     # @api       private
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def self.create(klass, name, attributes = {})
       record(klass, name, klass.create(attributes(klass, name).merge(attributes)))
     end
@@ -84,7 +84,7 @@ module DataMapper
     #
     # @api       private
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def self.make(klass, name, attributes = {})
       record(klass, name, klass.new(attributes(klass, name).merge(attributes)))
     end
@@ -94,8 +94,8 @@ module DataMapper
     # @param     klass    [Class, DataMapper::Resource]
     # @param     name     [Symbol]
     #
-    # @returns   [DataMapper::Resource]                   existing instance of a model from the record map
-    # @raises     DataMapper::Sweatshop::NoFixtureExist   when requested fixture does not exist in the record map
+    # @return   [DataMapper::Resource]                   existing instance of a model from the record map
+    # @raise     DataMapper::Sweatshop::NoFixtureExist   when requested fixture does not exist in the record map
     #
     # @api       private
     def self.pick(klass, name)
@@ -107,8 +107,8 @@ module DataMapper
     # @param     klass    [Class, DataMapper::Resource]
     # @param     name     [Symbol]
     #
-    # @returns   [Hash]          existing instance of a model from the model map
-    # @raises    NoFixtureExist  when requested fixture does not exist in the model map
+    # @return   [Hash]          existing instance of a model from the model map
+    # @raise    NoFixtureExist  when requested fixture does not exist in the model map
     #
     # @api       private
     def self.attributes(klass, name)
@@ -127,7 +127,7 @@ module DataMapper
     #
     # @param     hash     [Hash]
     #
-    # @returns   [Hash]          existing instance of a model from the model map
+    # @return   [Hash]          existing instance of a model from the model map
     #
     # @api       private
     def self.expand_callable_values(hash)

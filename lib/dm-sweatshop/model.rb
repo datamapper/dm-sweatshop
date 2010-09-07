@@ -11,7 +11,7 @@ module DataMapper
     # @param  name  [Symbol, String]  Name of the fixture
     # @param  blk   [Proc]            A proc that returns fixture attributes
     #
-    # @returns nil
+    # @return nil
     #
     # @api    public
     def fixture(name = default_fauxture_name, &blk)
@@ -32,7 +32,7 @@ module DataMapper
     #
     # @api       public
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def generate(name = default_fauxture_name, attributes = {})
       name, attributes = default_fauxture_name, name if name.is_a? Hash
       Sweatshop.create(self, name, attributes)
@@ -48,7 +48,7 @@ module DataMapper
     #
     # @api       public
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def generate!(name = default_fauxture_name, attributes = {})
       name, attributes = default_fauxture_name, name if name.is_a? Hash
       Sweatshop.create!(self, name, attributes)
@@ -60,8 +60,8 @@ module DataMapper
     #
     # @param     name     [Symbol]   name of the fauxture to use
     #
-    # @returns   [Hash]              existing instance of a model from the model map
-    # @raises    NoFixtureExist      when requested fixture does not exist in the model map
+    # @return   [Hash]              existing instance of a model from the model map
+    # @raise    NoFixtureExist      when requested fixture does not exist in the model map
     #
     # @api       public
     def generate_attributes(name = default_fauxture_name)
@@ -78,7 +78,7 @@ module DataMapper
     #
     # @api       private
     #
-    # @returns   [DataMapper::Resource]    added instance
+    # @return   [DataMapper::Resource]    added instance
     def make(name = default_fauxture_name, attributes = {})
       name, attributes = default_fauxture_name, name if name.is_a? Hash
       Sweatshop.make(self, name, attributes)
@@ -88,8 +88,8 @@ module DataMapper
     #
     # @param     name     [Symbol]                        name of the fauxture to pick
     #
-    # @returns   [DataMapper::Resource]                   existing instance of a model from the record map
-    # @raises     DataMapper::Sweatshop::NoFixtureExist   when requested fixture does not exist in the record map
+    # @return   [DataMapper::Resource]                   existing instance of a model from the record map
+    # @raise     DataMapper::Sweatshop::NoFixtureExist   when requested fixture does not exist in the record map
     #
     # @api       public
     def pick(name = default_fauxture_name)
@@ -98,7 +98,7 @@ module DataMapper
 
     # Default fauxture name. Usually :default.
     #
-    # @returns   [Symbol]   default fauxture name
+    # @return   [Symbol]   default fauxture name
     # @api       public
     def default_fauxture_name
       :default
