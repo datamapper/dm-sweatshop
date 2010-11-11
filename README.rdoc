@@ -52,10 +52,10 @@ Starting off with a simple user model.
 A fixture for the user model can be defined using the @fixture@ method.
 
   User.fixture {{
-    :username             => (username = /\w+/.gen),
-    :email                => "#{username}@example.com",
-    :password             => (password = /\w+/.gen),
-    :pasword_confirmation => password
+    :username              => (username = /\w+/.gen),
+    :email                 => "#{username}@example.com",
+    :password              => (password = /\w+/.gen),
+    :password_confirmation => password
 
     # The /\w+/.gen notation is part of the randexp gem:
     # http://github.com/benburkert/randexp/
