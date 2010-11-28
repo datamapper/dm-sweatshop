@@ -74,9 +74,10 @@ describe DataMapper::Sweatshop::Unique do
   describe 'when mixing into an object' do
     it 'only the unique method is added to the public interface' do
       obj = Object.new
-      old = obj.public_methods
+      old = obj.methods
       obj.extend(DataMapper::Sweatshop::Unique)
-      new = obj.public_methods
+      obj.should respond_to(:unique)
+      new = obj.methods
       (new - old).collect {|x| x.to_s }.should == ["unique"]
     end
   end
