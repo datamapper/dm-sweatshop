@@ -16,7 +16,8 @@ group :runtime do # Runtime dependencies (as in the gemspec)
   end
 
   gem 'dm-core',         DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
-  gem 'randexp',         '~> 0.1.5'
+  gem 'randexp',         '~> 0.1.5', :git => 'git://github.com/snusnu/randexp', :branch => 'no_parsetree'
+  gem 'ParseTree',       '~> 3.0.3', :platforms => :mri_18
 
 end
 
@@ -32,7 +33,7 @@ end
 
 group :quality do # These gems contain rake tasks that check the quality of the source code
 
-  gem 'rcov',           '~> 0.9.8'
+  gem 'rcov',           '~> 0.9.8', :platforms => :mri_18
   gem 'yard',           '~> 0.5'
   gem 'yardstick',      '~> 0.1'
 
