@@ -1,5 +1,5 @@
 begin
-  require 'active_support/core_ext/class/inheritable_reader'
+  require 'active_support/core_ext/class/attribute_accessors'
 rescue LoadError
   require 'extlib/class'
 end
