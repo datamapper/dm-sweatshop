@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Burkert"]
-  s.date = %q{2011-02-28}
+  s.date = %q{2011-03-01}
   s.description = %q{DataMapper plugin for building pseudo random models}
   s.email = %q{ben [a] benburkert [d] com}
   s.extra_rdoc_files = [
@@ -53,32 +53,26 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activesupport>, ["~> 3.0.4"])
-      s.add_runtime_dependency(%q<i18n>, ["~> 0.5.0"])
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.1.0.rc1"])
       s.add_runtime_dependency(%q<randexp>, ["~> 0.1.5"])
-      s.add_runtime_dependency(%q<ParseTree>, ["~> 3.0.3"])
+      s.add_runtime_dependency(%q<ParseTree>, ["~> 3.0.7"])
       s.add_development_dependency(%q<dm-validations>, ["~> 1.1.0.rc1"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3.1"])
     else
-      s.add_dependency(%q<activesupport>, ["~> 3.0.4"])
-      s.add_dependency(%q<i18n>, ["~> 0.5.0"])
       s.add_dependency(%q<dm-core>, ["~> 1.1.0.rc1"])
       s.add_dependency(%q<randexp>, ["~> 0.1.5"])
-      s.add_dependency(%q<ParseTree>, ["~> 3.0.3"])
+      s.add_dependency(%q<ParseTree>, ["~> 3.0.7"])
       s.add_dependency(%q<dm-validations>, ["~> 1.1.0.rc1"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<rspec>, ["~> 1.3.1"])
     end
   else
-    s.add_dependency(%q<activesupport>, ["~> 3.0.4"])
-    s.add_dependency(%q<i18n>, ["~> 0.5.0"])
     s.add_dependency(%q<dm-core>, ["~> 1.1.0.rc1"])
     s.add_dependency(%q<randexp>, ["~> 0.1.5"])
-    s.add_dependency(%q<ParseTree>, ["~> 3.0.3"])
+    s.add_dependency(%q<ParseTree>, ["~> 3.0.7"])
     s.add_dependency(%q<dm-validations>, ["~> 1.1.0.rc1"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
