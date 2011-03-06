@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Burkert"]
-  s.date = %q{2011-03-01}
+  s.date = %q{2011-03-06}
   s.description = %q{DataMapper plugin for building pseudo random models}
   s.email = %q{ben [a] benburkert [d] com}
   s.extra_rdoc_files = [
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "dm-sweatshop.gemspec",
     "lib/dm-sweatshop.rb",
     "lib/dm-sweatshop/model.rb",
+    "lib/dm-sweatshop/support/class_attributes.rb",
     "lib/dm-sweatshop/sweatshop.rb",
     "lib/dm-sweatshop/unique.rb",
     "spec/dm-sweatshop/model_spec.rb",
