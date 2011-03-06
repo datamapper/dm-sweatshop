@@ -1,8 +1,4 @@
-begin
-  require 'active_support/core_ext/class/attribute_accessors'
-rescue LoadError
-  require 'extlib/class'
-end
+require 'dm-sweatshop/support/class_attributes'
 
 module DataMapper
   class Sweatshop
@@ -69,9 +65,9 @@ module DataMapper
         puts "DataMapper::Sweatshop::Unique - ParseTree could not be loaded, anonymous uniques will not be allowed"
       end
 
-      cattr_accessor :count_map
-      cattr_accessor :unique_map
-      cattr_accessor :parser
+      ClassAttributes.accessor(self, :count_map)
+      ClassAttributes.accessor(self, :unique_map)
+      ClassAttributes.accessor(self, :parser)
 
       # Use the sexp representation of the block as a unique key for the block
       # If you copy and paste a block, it will still have the same key
