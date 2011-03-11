@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Burkert"]
-  s.date = %q{2011-03-06}
+  s.date = %q{2011-03-10}
   s.description = %q{DataMapper plugin for building pseudo random models}
   s.email = %q{ben [a] benburkert [d] com}
   s.extra_rdoc_files = [
@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/datamapper/dm-sweatshop}
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{datamapper}
-  s.rubygems_version = %q{1.5.2}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{DataMapper plugin for building pseudo random models}
   s.test_files = [
     "spec/dm-sweatshop/model_spec.rb",
