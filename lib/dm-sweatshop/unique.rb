@@ -63,7 +63,7 @@ module DataMapper
         require 'parse_tree'
       rescue LoadError
         puts "DataMapper::Sweatshop::Unique - ParseTree could not be loaded, anonymous uniques will not be allowed"
-      end
+      end unless defined?(JRUBY_VERSION)
 
       ClassAttributes.accessor(self, :count_map)
       ClassAttributes.accessor(self, :unique_map)
