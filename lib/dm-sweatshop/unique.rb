@@ -62,7 +62,7 @@ module DataMapper
         gem 'ParseTree', '~>3.0.3'
         require 'parse_tree'
       rescue LoadError
-        # ParseTree could not be loaded, anonymous uniques will not be allowed
+        puts "DataMapper::Sweatshop::Unique - ParseTree could not be loaded, anonymous uniques will not be allowed" unless RUBY_VERSION.to_f >= 1.9
       end unless defined?(JRUBY_VERSION)
 
       ClassAttributes.accessor(self, :count_map)
