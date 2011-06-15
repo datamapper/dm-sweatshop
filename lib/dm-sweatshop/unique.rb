@@ -58,12 +58,14 @@ module DataMapper
     class UniqueWorker
       MAX_TRIES = 10
 
-      begin
-        gem 'ParseTree', '~>3.0.3'
-        require 'parse_tree'
-      rescue LoadError
-        puts "DataMapper::Sweatshop::Unique - ParseTree could not be loaded, anonymous uniques will not be allowed" unless RUBY_VERSION.to_f >= 1.9
-      end unless defined?(JRUBY_VERSION)
+      unless defined?(JRUBY_VERSION) || RUBY_VERSION >= '1.9'
+        begin
+          gem 'ParseTree', '~>3.0.3'
+          require 'parse_tree'
+        rescue LoadError
+          puts 'DataMapper::Sweatshop::Unique - ParseTree could not be loaded, anonymous uniques will not be allowed'
+        end
+      end
 
       ClassAttributes.accessor(self, :count_map)
       ClassAttributes.accessor(self, :unique_map)
