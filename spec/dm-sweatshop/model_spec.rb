@@ -56,6 +56,21 @@ describe DataMapper::Model do
         end
       end
 
+      describe "with block argument" do
+        before :each do
+          Widget.fixture do |attrs|
+            {
+              :name => attrs.delete(:title)
+            }
+          end
+        end
+
+        it "passes the attributes to the block" do
+          widget = Widget.gen(:title => 'Hello')
+          widget.name.should == 'Hello'
+        end
+      end
+
       it "should allow handle complex named fixtures" do
         Wonket.fix {{
           :name => /\w+ Wonket/.gen.capitalize,
