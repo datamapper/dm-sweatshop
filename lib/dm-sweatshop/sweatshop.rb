@@ -52,13 +52,13 @@ module DataMapper
     #
     # @param     klass       [Class, DataMapper::Resource]
     # @param     name        [Symbol]
-    # @param     attributes  [Hash]
+    # @param     overrides   [Hash]
     #
     # @api       private
     #
     # @return   [DataMapper::Resource]    added instance
-    def self.create!(klass, name, attributes = {})
-      record(klass, name, klass.create!(attributes(klass, name).merge(attributes)))
+    def self.create!(klass, name, overrides = {})
+      record(klass, name, klass.create!(attributes(klass, name).merge(overrides)))
     end
 
     # Creates an instance from given hash of attributes, saves it
@@ -66,13 +66,13 @@ module DataMapper
     #
     # @param     klass       [Class, DataMapper::Resource]
     # @param     name        [Symbol]
-    # @param     attributes  [Hash]
+    # @param     overrides   [Hash]
     #
     # @api       private
     #
     # @return   [DataMapper::Resource]    added instance
-    def self.create(klass, name, attributes = {})
-      record(klass, name, klass.create(attributes(klass, name).merge(attributes)))
+    def self.create(klass, name, overrides = {})
+      record(klass, name, klass.create(attributes(klass, name).merge(overrides)))
     end
 
     # Creates an instance from given hash of attributes
@@ -80,13 +80,13 @@ module DataMapper
     #
     # @param     klass       [Class, DataMapper::Resource]
     # @param     name        [Symbol]
-    # @param     attributes  [Hash]
+    # @param     overrides   [Hash]
     #
     # @api       private
     #
     # @return   [DataMapper::Resource]    added instance
-    def self.make(klass, name, attributes = {})
-      record(klass, name, klass.new(attributes(klass, name).merge(attributes)))
+    def self.make(klass, name, overrides = {})
+      record(klass, name, klass.new(attributes(klass, name).merge(overrides)))
     end
 
     # Returns a pre existing instance of a model from the record map
