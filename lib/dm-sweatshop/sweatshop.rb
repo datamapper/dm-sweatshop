@@ -58,7 +58,7 @@ module DataMapper
     #
     # @return   [DataMapper::Resource]    added instance
     def self.create!(klass, name, overrides = {})
-      record(klass, name, klass.create!(attributes(klass, name, overrides).merge(overrides)))
+      record(klass, name, klass.create!(attributes(klass, name, overrides)))
     end
 
     # Creates an instance from given hash of attributes, saves it
@@ -72,7 +72,7 @@ module DataMapper
     #
     # @return   [DataMapper::Resource]    added instance
     def self.create(klass, name, overrides = {})
-      record(klass, name, klass.create(attributes(klass, name, overrides).merge(overrides)))
+      record(klass, name, klass.create(attributes(klass, name, overrides)))
     end
 
     # Creates an instance from given hash of attributes
@@ -86,7 +86,7 @@ module DataMapper
     #
     # @return   [DataMapper::Resource]    added instance
     def self.make(klass, name, overrides = {})
-      record(klass, name, klass.new(attributes(klass, name, overrides).merge(overrides)))
+      record(klass, name, klass.new(attributes(klass, name, overrides)))
     end
 
     # Returns a pre existing instance of a model from the record map
@@ -115,7 +115,7 @@ module DataMapper
       proc = model_map[klass][name.to_sym].pick
 
       if proc
-        expand_callable_values(proc.call(overrides))
+        expand_callable_values(proc.call(overrides)).merge(overrides)
       elsif klass.superclass.is_a?(DataMapper::Model)
         attributes(klass.superclass, name, overrides)
       else
