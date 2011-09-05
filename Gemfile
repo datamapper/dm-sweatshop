@@ -10,7 +10,7 @@ DO_VERSION     = '~> 0.10.6'
 DM_DO_ADAPTERS = %w[ sqlite postgres mysql oracle sqlserver ]
 
 gem 'dm-core',   DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
-gem 'randexp',   '~> 0.1.5', :git => 'git://github.com/snusnu/randexp', :branch => 'no_parsetree'
+gem 'randexp',   '~> 0.1.5'
 gem 'ParseTree', '~> 3.0.7', :platforms => :mri_18
 
 group :development do
