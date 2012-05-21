@@ -4,7 +4,7 @@ module DataMapper
     # found in model and record maps, respectively.
     #
     # This usually happens when you forget to use +make+ or
-    # +generate+ method before trying ti +pick+ an object.
+    # +generate+ method before trying to +pick+ an object.
     class NoFixtureExist < StandardError
     end
 
