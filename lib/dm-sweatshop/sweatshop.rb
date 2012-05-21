@@ -5,7 +5,7 @@ module DataMapper
     #
     # This usually happens when you forget to use +make+ or
     # +generate+ method before trying ti +pick+ an object.
-    class NoFixtureExist < Exception
+    class NoFixtureExist < StandardError
     end
 
     class << self
