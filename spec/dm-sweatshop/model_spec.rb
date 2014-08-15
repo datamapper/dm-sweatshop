@@ -56,6 +56,21 @@ describe DataMapper::Model do
         end
       end
 
+      describe "with block argument" do
+        before :each do
+          Widget.fixture do |attrs|
+            {
+              :name => attrs.delete(:title)
+            }
+          end
+        end
+
+        it "passes the attributes to the block" do
+          widget = Widget.gen(:title => 'Hello')
+          widget.name.should == 'Hello'
+        end
+      end
+
       it "should allow handle complex named fixtures" do
         Wonket.fix {{
           :name => /\w+ Wonket/.gen.capitalize,
@@ -186,21 +201,37 @@ describe DataMapper::Model do
 
     describe ".generate_attributes" do
       before :each do
+        Widget.fix {{
+          :name  => "normal",
+          :price => 10
+        }}
         Widget.fix(:red) {{
           :name  => "red",
           :price => 20
         }}
-
-        @hash = Widget.generate_attributes(:red)
       end
 
       it "returns a Hash" do
+        @hash = Widget.generate_attributes(:red)
         @hash.should be_an_instance_of(Hash)
       end
 
       it "returns stored attributes hash by name" do
+        @hash = Widget.generate_attributes(:red)
         @hash[:name].should == "red"
         @hash[:price].should == 20
+      end
+
+      it "allows attributes to be overridden" do
+        @hash = Widget.generate_attributes(:name => 'peter')
+        @hash[:name].should == "peter"
+        @hash[:price].should == 10
+      end
+
+      it "allows attributes to be overridden for custom factories" do
+        @hash = Widget.generate_attributes(:red, :price => 30)
+        @hash[:name].should == "red"
+        @hash[:price].should == 30
       end
     end
 

@@ -58,14 +58,16 @@ module DataMapper
 
     # Returns a Hash of attributes from the model map.
     #
-    # @param     name     [Symbol]   name of the fauxture to use
+    # @param     name        [Symbol]   name of the fauxture to use
+    # @param     attributes  [Hash]
     #
     # @return   [Hash]              existing instance of a model from the model map
     # @raise    NoFixtureExist      when requested fixture does not exist in the model map
     #
     # @api       public
-    def generate_attributes(name = default_fauxture_name)
-      Sweatshop.attributes(self, name)
+    def generate_attributes(name = default_fauxture_name, attributes = {})
+      name, attributes = default_fauxture_name, name if name.is_a? Hash
+      Sweatshop.attributes(self, name, attributes)
     end
 
     alias_method :gen_attrs, :generate_attributes
