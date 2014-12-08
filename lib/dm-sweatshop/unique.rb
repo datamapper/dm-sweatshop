@@ -60,7 +60,9 @@ module DataMapper
 
       unless defined?(JRUBY_VERSION) || RUBY_VERSION >= '1.9'
         begin
-          gem 'ParseTree', '~>3.0.3'
+          if respond_to?(:gem, true)
+            gem 'ParseTree', '~>3.0.3'
+          end
           require 'parse_tree'
         rescue LoadError
           puts 'DataMapper::Sweatshop::Unique - ParseTree could not be loaded, anonymous uniques will not be allowed'
