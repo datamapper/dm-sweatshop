@@ -115,7 +115,12 @@ module DataMapper
       proc = model_map[klass][name.to_sym].pick
 
       if proc
-        expand_callable_values(proc.call)
+        hash = proc.call
+        super_attributes = {}
+        if hash.key?(:super)
+          super_attributes = attributes(klass.superclass, hash.delete(:super) || name)
+        end
+        super_attributes.merge(expand_callable_values(hash))
       elsif klass.superclass.is_a?(DataMapper::Model)
         attributes(klass.superclass, name)
       else

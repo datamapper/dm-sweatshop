@@ -16,6 +16,9 @@ describe DataMapper::Model do
   class Wonket < Widget
     property :size, String
   end
+  
+  class ExtendedWidget < Widget
+  end
 
   class Order
     include DataMapper::Resource
@@ -87,6 +90,21 @@ describe DataMapper::Model do
 
         Order.gen.widgets.should_not be_empty
       end
+      
+      it "should allow super with STI fixtures" do
+        Widget.fix {{
+          :name => "red"
+        }}
+        
+        ExtendedWidget.fix {{
+          :super => nil,
+          :price => 50
+        }}
+
+        w = ExtendedWidget.gen
+        w.name.should == "red"
+        w.price.should == 50
+      end      
     end
 
     describe ".make" do
